@@ -9,8 +9,7 @@ Created on Sat Mar 11 23:43:44 2017
 from sklearn import datasets
 from sklearn.cross_validation import train_test_split
 from sklearn.preprocessing import StandardScaler
-from sklearn.linear_model import Perceptron
-from sklearn.metrics import accuracy_score
+from sklearn.linear_model import LogisticRegression
 import numpy as np
 from plot_decision_regions import plot_decision_regions
 import matplotlib.pyplot as plt
@@ -30,21 +29,19 @@ sc.fit(X_train)
 X_train_std = sc.transform(X_train)
 X_test_std = sc.transform(X_test)
 
-''' Perceptron instance '''
-ppn = Perceptron( n_iter=40, eta0=0.01, random_state=0 )
-ppn.fit( X_train_std, y_train )
-y_pred = ppn.predict( X_test_std )
-print('Miscalssified samples: %d' % (y_test != y_pred).sum() )
-print('Accuracy: %f' % accuracy_score(y_test, y_pred) )
-
+'''
+C: Inverse of regularization strength - smaller values specify stronger regularization
+'''
+lr = LogisticRegression( C = 1000.0, random_state = 0 )
+lr.fit( X_train_std, y_train )
 X_combined_std = np.vstack( ( X_train_std, X_test_std ) )
 y_combined = np.hstack( ( y_train, y_test ) )
 plot_decision_regions( X=X_combined_std, y=y_combined,
                        target_names=iris.target_names,
-                       classifier=ppn,
+                       classifier=lr,
                        test_idx=range(105, 150))
-plt.title( 'Scikit-Learn Perceptron' )
+plt.title( 'Scikit-Learn LogisticRegression' )
 plt.xlabel('sepal length [standardized]')
 plt.ylabel('petal length [standardized]')
-plt.legend( loc='upper left')
+plt.legend( loc='lower right')
 fig = plt.figure()
