@@ -41,8 +41,8 @@ plot_decision_regions( X=X_combined_std, y=y_combined,
                        classifier=svm,
                        test_idx=range(105, 150))
 plt.title( 'Scikit-Learn SVM, gamma=0.2' )
-plt.xlabel('sepal length [standardized]')
-plt.ylabel('petal length [standardized]')
+plt.xlabel('petal length [standardized]')
+plt.ylabel('petal width [standardized]')
 plt.legend( loc='lower right')
 fig = plt.figure()
 
@@ -55,8 +55,8 @@ plot_decision_regions( X=X_combined_std, y=y_combined,
                        classifier=svm1,
                        test_idx=range(105, 150))
 plt.title( 'Scikit-Learn SVM, gamma=1.0' )
-plt.xlabel('sepal length [standardized]')
-plt.ylabel('petal length [standardized]')
+plt.xlabel('petal length [standardized]')
+plt.ylabel('petal width [standardized]')
 plt.legend( loc='lower right')
 fig = plt.figure()
 
@@ -69,7 +69,7 @@ plot_decision_regions( X=X_combined_std, y=y_combined,
                        classifier=svm2,
                        test_idx=range(105, 150))
 plt.title( 'Scikit-Learn SVM, gamma=100.0' )
-plt.xlabel('sepal length [standardized]')
-plt.ylabel('petal length [standardized]')
+plt.xlabel('petal length [standardized]')
+plt.ylabel('petal width [standardized]')
 plt.legend( loc='lower right')
 fig = plt.figure()

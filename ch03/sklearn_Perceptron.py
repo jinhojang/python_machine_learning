@@ -44,7 +44,7 @@ plot_decision_regions( X=X_combined_std, y=y_combined,
                        classifier=ppn,
                        test_idx=range(105, 150))
 plt.title( 'Scikit-Learn Perceptron' )
-plt.xlabel('sepal length [standardized]')
-plt.ylabel('petal length [standardized]')
+plt.xlabel('petal length [standardized]')
+plt.ylabel('petal width [standardized]')
 plt.legend( loc='upper left')
 fig = plt.figure()
