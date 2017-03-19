@@ -35,13 +35,13 @@ plot_decision_regions( X=X_combined, y=y_combined,
                        classifier=tree,
                        test_idx=range(105, 150))
 plt.title( 'Scikit-Learn DecisionTree' )
-plt.xlabel('sepal length [cm]')
-plt.ylabel('petal length [cm]')
+plt.xlabel('petal length [cm]')
+plt.ylabel('petal width [cm]')
 plt.legend( loc='upper left')
 fig = plt.figure()
 
 from sklearn.tree import export_graphviz
-export_graphviz( tree, out_file='tree.dot', feature_names=['setal length', 'petal length'] )
+export_graphviz( tree, out_file='tree.dot', feature_names=['petal length', 'petal width'] )
 
 #> dot -Tpng tree.dot -o tree.png
 #> feh tree.png
